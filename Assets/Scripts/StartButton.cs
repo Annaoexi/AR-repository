@@ -7,5 +7,6 @@ public class StartButton : MonoBehaviour
 {
    public void changemenuescene(string scenename){
        SceneManager.LoadScene(scenename);
+       
    }
 }
