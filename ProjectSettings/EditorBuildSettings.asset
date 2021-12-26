@@ -6,11 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/UIInterface.unity
-    guid: c2e94f64aa5867242bccd987938455ba
-  - enabled: 1
-    path: Assets/Scenes/PlaneDetection.unity
-    guid: 79d8acf8c4d042e49a61fdf3c4c4214b
+    path: Assets/Scenes/OptiPlaneDetection.unity
+    guid: 2e9936637edfcf74d86cd4dd6f45410f
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: f01b591aade3f024b80831204d4d9b6e, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: dfcee278aa24cd24c95ec380cd2a8850, type: 2}

@@ -18,6 +18,7 @@ public class ObjectPlacement : MonoBehaviour
     Camera arCam; 
     GameObject placedObject; 
    
+    
     void Start()
     {
      placedObject = null; 
@@ -42,13 +43,13 @@ public class ObjectPlacement : MonoBehaviour
             {
                 if(Physics.Raycast(ray, out hit))
                 {
-                    if(hit.collider.gameObject.tag == "Spawnable")
+                    if (hit.collider.gameObject.tag != "Spawnable")
                     {
-                        placedObject= hit.collider.gameObject;
+                        SpawnPrefab(m_Hits[0].pose.position);
                     }
                     else
                     {
-                        SpawnPrefab(m_Hits[0].pose.position); 
+                        placedObject = hit.collider.gameObject;
                     }
                 }
 
