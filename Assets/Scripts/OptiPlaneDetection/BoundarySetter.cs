@@ -4,16 +4,21 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using TMPro;
-using UnityEngine.XR; 
-using UnityEngine.Experimental.XR.Interaction; 
+using UnityEngine.XR;
+
 
 
 
 
 [RequireComponent(typeof(ARRaycastManager))]
 [RequireComponent(typeof(ARPlaneManager))]
-public class ARTapToPlaceObject : MonoBehaviour
-{   //Variables for creating the frame  
+public class BoundarySetter : MonoBehaviour
+{   //Verweise auf Object Placer skript 
+    //[SerializeField]
+    //private ObjectPlacer _objectPlacer; 
+
+    
+    //Variables for creating the frame  
 
     [SerializeField]
     private TextMeshProUGUI showCorner; //Display of text 
@@ -27,15 +32,15 @@ public class ARTapToPlaceObject : MonoBehaviour
     private int i = 0; //Variable for placed object
 
 
+    //Variables for raycasting and plane detection 
     private ARRaycastManager _aRRaycastManager;
     private ARPlaneManager _arPlaneManager;
+    static List<ARRaycastHit> hits = new List<ARRaycastHit>(); //wieso static? 
 
-    private ARRaycastManager newARRaycastManager;
 
-
+    //Variables for corner points 
     public List<Vector3> planeOutlinePoints = new List<Vector3>();
-    static List<ARRaycastHit> hits = new List<ARRaycastHit>();
-
+    
     private enum gameCorner
     {
         UpperLeft,
@@ -54,17 +59,6 @@ public class ARTapToPlaceObject : MonoBehaviour
     {
         return planeOutlinePoints;
     }
-
-
-
-    //Variables for placing the objects into the frame 
-
-    //private Vector2 touchPositionObject;//tap on screen where to shoot raycast 
-
-    public GameObject gameObjectToInstantiate;  //Variable for any object we want to instantiate 
-    private GameObject placedObject; //reference varibale to gameObjectToInstantiate
-
-
 
 
 
@@ -130,36 +124,27 @@ public class ARTapToPlaceObject : MonoBehaviour
                     _object.gameObject.SetActive(false);
                 }
 
-                //Update of plane???
-                
+                //Visualisierung der Plane 
+                //_objectPlacer.setBoundaries();
+                //was braucht der an Infos damit er die Objecte plazieren kann 
+                //alternative mathematisch lösen 
+                //collischen, collider -> gameObject kann collider haben (physikalisches Componeten)
+                // ob object collidiert 
+                //plane und objekt haben beide collider und dann checken ob die sich berühren 
+                //vier eckpunkte 
 
-
-                
-                //Placing objects? 
-                
-
-                
-                
-                
-
-                
 
                 break;
-
-
-
 
 
 
         }
 
 
-
-
-        //Shoot array in update method 
+        //Placing of corner objects 
         if (!TryGetTouchPosition(out Vector3 touchPosition))
             return;
-        if (_aRRaycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinBounds)) //oder hier schon PlaneWithinBounds??? 
+        if (_aRRaycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon)) //oder hier schon PlaneWithinBounds??? 
         {
             var HitPose = hits[0].pose;
 
@@ -195,25 +180,13 @@ public class ARTapToPlaceObject : MonoBehaviour
 
                 case gameCorner.AllDone:
 
-                    // nothing i guess oder gehts hier weiter? muss ich hier get corner zu plane hinzufügen? 
 
                     break;
 
 
 
             }
-            //Oder geht es hier dann weiter? 
 
-            //if(spawnedObject == null ) //if there is no object 
-            //{
-            //  spawnedObject = Instantiate(gameObjectToInstantiate, HitPose.position, HitPose.rotation);
-
-
-            //}
-            //else //if there is already an object then move it
-            //{
-            //    spawnedObject.transform.position = HitPose.position; //moving object
-            //}
         }
     }
 }
