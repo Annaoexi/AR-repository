@@ -200,7 +200,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 500, y: 500}
+  m_CellSize: {x: 250, y: 250}
   m_Spacing: {x: 5, y: 5}
   m_Constraint: 1
   m_ConstraintCount: 5
@@ -398,10 +398,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 84
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 8
+    m_MinSize: 4
     m_MaxSize: 84
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -477,11 +477,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 4
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -556,11 +556,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 4
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -756,10 +756,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 84
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 8
+    m_MinSize: 4
     m_MaxSize: 84
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -859,12 +859,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1227980681}
-        m_TargetAssemblyTypeName: ObjectPlacer, Assembly-CSharp
+      - m_Target: {fileID: 1901378479}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
         m_MethodName: setObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8183671989526311537, guid: 74c79be55d2ed4a49b6dad6a034e48b4, type: 3}
+          m_ObjectArgument: {fileID: 919132149155446097, guid: db8fbf036219f0c4693f3f5382571206, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -968,10 +968,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 84
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 8
+    m_MinSize: 4
     m_MaxSize: 84
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1482,7 +1482,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &394204831
 GameObject:
@@ -1543,10 +1543,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 84
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 8
+    m_MinSize: 4
     m_MaxSize: 84
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1600,7 +1600,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -138, y: -107}
-  m_SizeDelta: {x: 150.0695, y: 100}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &421145966
 MonoBehaviour:
@@ -1755,11 +1755,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 4
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1834,11 +1834,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 4
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1979,7 +1979,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 661145843}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1901378479}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: setObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &661145843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2030,6 +2042,7 @@ GameObject:
   - component: {fileID: 780882277}
   - component: {fileID: 780882279}
   - component: {fileID: 780882276}
+  - component: {fileID: 780882280}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: MainCamera
@@ -2076,7 +2089,7 @@ Transform:
   m_Children:
   - {fileID: 322440770}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &780882279
 MonoBehaviour:
@@ -2091,7 +2104,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlanePrefab: {fileID: 6075732896338244653, guid: df7a3c2e31fcd4b49a6955585617ca22, type: 3}
-  m_DetectionMode: -1
+  m_DetectionMode: 1
+--- !u!114 &780882280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780882275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f88b31fdcceb14a9786b9865d7cf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScriptButtonHandler: {fileID: 1901378479}
+  gameObjectToInstantiate: {fileID: 4286808132936066787, guid: e603101f587cb754db096a6afe313d83, type: 3}
 --- !u!1 &869858880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,7 +2444,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 322191643}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.7551587
+  m_Size: 0.6165354
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2519,11 +2546,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 4
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2933,10 +2960,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 84
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 8
+    m_MinSize: 4
     m_MaxSize: 84
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3087,11 +3114,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 4
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3166,11 +3193,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3224,8 +3251,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 400}
-  m_SizeDelta: {x: 1920, y: 800}
+  m_AnchoredPosition: {x: 0.000011444, y: 300}
+  m_SizeDelta: {x: 800, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1093801325
 MonoBehaviour:
@@ -3354,11 +3381,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 4
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3425,7 +3452,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3443,7 +3470,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 322440766}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -3452,7 +3479,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1171404300
 RectTransform:
@@ -3469,7 +3496,7 @@ RectTransform:
   - {fileID: 421145965}
   - {fileID: 1093801324}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3512,49 +3539,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1227980680
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1227980682}
-  - component: {fileID: 1227980681}
-  m_Layer: 0
-  m_Name: ObjectPlacer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1227980681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227980680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce1b991367bc46d439c2a951231cfebe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1227980682
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227980680}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 458.70917, y: 542.7643, z: -521.78876}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1228686657
 GameObject:
   m_ObjectHideFlags: 0
@@ -3637,7 +3621,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1228686660}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1901378479}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: setObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4571747095579060191, guid: ed299bf0a9a35f74b9a133738352a1f8, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1228686660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3735,11 +3731,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 4
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3814,10 +3810,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 84
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 8
+    m_MinSize: 4
     m_MaxSize: 84
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3893,7 +3889,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 84
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -4129,10 +4125,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 84
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 8
+    m_MinSize: 4
     m_MaxSize: 84
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -4353,7 +4349,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1815471820}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.3885856
+  m_Size: 0.5743843
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4479,13 +4475,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1901378479}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: setObject
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgument: {fileID: 919132149155446097, guid: 3acdf7536498d4c48b8244bf4de836c6, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4588,11 +4584,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 4
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4729,79 +4725,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516427870}
   m_CullTransparentMesh: 1
---- !u!1 &1593243081
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1593243085}
-  - component: {fileID: 1593243084}
-  - component: {fileID: 1593243083}
-  - component: {fileID: 1593243082}
-  m_Layer: 0
-  m_Name: ButtonHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1593243082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593243081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acb759194a05ae549adca7dda26780f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObjectToInstantiate: {fileID: 4571747095579060191, guid: ed299bf0a9a35f74b9a133738352a1f8, type: 3}
-  btnObject1: {fileID: 249340620}
---- !u!114 &1593243083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593243081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RaycastPrefab: {fileID: 0}
---- !u!114 &1593243084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593243081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520bb47c46cf8624fafb307b7d1b862a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Camera: {fileID: 322440766}
---- !u!4 &1593243085
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593243081}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 265.45593, y: 260.01584, z: -101.96371}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1649221727
 GameObject:
   m_ObjectHideFlags: 0
@@ -5290,10 +5213,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 84
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 8
+    m_MinSize: 4
     m_MaxSize: 84
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -5444,11 +5367,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 84
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 8
-    m_MaxSize: 84
+    m_MinSize: 4
+    m_MaxSize: 91
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -5464,6 +5387,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894531062}
   m_CullTransparentMesh: 1
+--- !u!1 &1901378478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1901378480}
+  - component: {fileID: 1901378479}
+  m_Layer: 0
+  m_Name: ButtonHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1901378479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901378478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 246bfa9733238e640bdc390081d8256b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1901378480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901378478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 207.27371, y: 116.7149, z: -58.00714}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1915832683
 GameObject:
   m_ObjectHideFlags: 0
@@ -5644,11 +5610,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 4
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1

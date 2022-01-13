@@ -5,20 +5,26 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using TMPro;
 using UnityEngine.XR;
+using UnityEngine.UI;
 
 
 
-
-
-[RequireComponent(typeof(ARRaycastManager))]
-[RequireComponent(typeof(ARPlaneManager))]
 public class BoundarySetter : MonoBehaviour
 {   //Verweise auf Object Placer skript 
     //[SerializeField]
-    //private ObjectPlacer _objectPlacer; 
+    //private ObjectPlacer _objectPlacer;
 
+
+    //Variables for raycasting and plane detection 
+    [SerializeField]
+    private ARRaycastManager _aRRaycastManager;
     
-    //Variables for creating the frame  
+    [SerializeField]
+    private ARPlaneManager _arPlaneManager;
+    static List<ARRaycastHit> hits = new List<ARRaycastHit>(); //wieso static? 
+
+
+    //Variables for creating the boundaries  
 
     [SerializeField]
     private TextMeshProUGUI showCorner; //Display of text 
@@ -26,48 +32,26 @@ public class BoundarySetter : MonoBehaviour
     [SerializeField]
     private GameObject indicateCorner; //Game object to place into the corners of the plane 
 
-    //[SerializeField]
-    //private GameObject gameLoopObject; //Object to place try out 
+
     private GameObject[] spawnedObjects = new GameObject[4];
     private int i = 0; //Variable for placed object
 
 
-    //Variables for raycasting and plane detection 
-    private ARRaycastManager _aRRaycastManager;
-    private ARPlaneManager _arPlaneManager;
-    static List<ARRaycastHit> hits = new List<ARRaycastHit>(); //wieso static? 
-
-
     //Variables for corner points 
     public List<Vector3> planeOutlinePoints = new List<Vector3>();
-    
+
     private enum gameCorner
     {
         UpperLeft,
         UpperRight,
         LowerRight,
         LowerLeft,
-        AllDone
+        AllDone,
+
     }
 
     gameCorner setCorner = gameCorner.UpperLeft; //Here the taping of the corners start 
 
-
-    //Methode for plane corners was macht die? bzw was sind die plane outline points
-
-    public List<Vector3> GetOutlinePoints()
-    {
-        return planeOutlinePoints;
-    }
-
-
-
-
-    private void Awake()
-    {
-        _aRRaycastManager = GetComponent<ARRaycastManager>(); //Raycasting wird aktiviert 
-        _arPlaneManager = GetComponent<ARPlaneManager>(); //Plane detection wird aktiviert 
-    }
 
     //Method for touching to set corners of frame , if touched 
     bool TryGetTouchPosition(out Vector3 touchPosition)
@@ -87,7 +71,8 @@ public class BoundarySetter : MonoBehaviour
         return false;
     }
 
-
+  
+    
 
     // Update is called once per frame
     void Update()
@@ -114,15 +99,47 @@ public class BoundarySetter : MonoBehaviour
                 break;
 
             case gameCorner.AllDone:
-
-                _arPlaneManager.planePrefab.SetActive(true); //Deaktivierung der "alten" Plane Detection?
-                _arPlaneManager.SetTrackablesActive(true); //Deaktivierung der "alten" Trackables?
-                showCorner.gameObject.SetActive(false); //Deaktivierung der Corner Objekte 
-
+                showCorner.SetText("Plane will be initialized");
                 foreach (var _object in spawnedObjects) //Jedes Objekt in den platzierten Objekten wird dekativiert 
                 {
                     _object.gameObject.SetActive(false);
                 }
+
+                showCorner.gameObject.SetActive(false); //Deactivateing of text 
+
+                //1. Deaktivierung der AR Plane 
+                _arPlaneManager.planePrefab.SetActive(false);
+                _arPlaneManager.SetTrackablesActive(false);
+
+                //2. Erstellen der Plane zwischen den Punkten 
+                //Get items for the planeOutlinePointsList 
+                Vector3 LeftTopCorner = planeOutlinePoints[0];
+                Vector3 RightTopCorner = planeOutlinePoints[1];
+                Vector3 LeftBottomCorner = planeOutlinePoints[2];
+                Vector3 RightBottomCorner = planeOutlinePoints[3]; //Man braucht eigentlich nur 3 Punkte um das Plane zu erstellen 
+
+                //Calculating and creating new plane 
+                var plane = new Plane(LeftTopCorner, RightTopCorner, LeftBottomCorner);
+                var center = (LeftTopCorner + RightTopCorner + LeftBottomCorner) / 3f;
+                float LenghtOfPlane = RightTopCorner.x - RightBottomCorner.x;
+                float WidthOfPlane = LeftTopCorner.y - LeftBottomCorner.y;
+
+                Vector3 SizeOfPlane = new Vector3(LenghtOfPlane, WidthOfPlane, 0);
+
+
+                //Draw plane?               
+                    
+
+                Gizmos.color = Color.cyan;
+                Gizmos.DrawCube(center, SizeOfPlane);
+                //Gizmos geht anscheinend nur wieder mit kack Gameobjekten... transform.position? 
+
+
+                Gizmos.DrawLine(LeftTopCorner, RightTopCorner); 
+                Gizmos.DrawLine(RightTopCorner, RightBottomCorner); 
+                Gizmos.DrawLine(RightBottomCorner, LeftBottomCorner);
+                Gizmos.DrawLine(LeftBottomCorner, LeftTopCorner); 
+
 
                 //Visualisierung der Plane 
                 //_objectPlacer.setBoundaries();
@@ -181,7 +198,9 @@ public class BoundarySetter : MonoBehaviour
                 case gameCorner.AllDone:
 
 
+
                     break;
+
 
 
 

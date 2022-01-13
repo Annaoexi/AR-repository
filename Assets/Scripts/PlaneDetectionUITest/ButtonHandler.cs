@@ -1,69 +1,68 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
-using UnityEngine.UI;
-using UnityEngine.EventSystems; 
+using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(ARRaycastManager))]
+
 public class ButtonHandler : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject gameObjectToInstantiate;
-    [SerializeField]
-    public Button btnObject1;
+    //Varialble um auf andere skripte zu verweisen 
+    //[SerializeField]
+    //private BoundarySetter _boundarySetter; //Brauch ma erstmal ned weil der boundary setter nicht geht 
+
+
+    //Variablen für die Objektplatzierung 
+
+   
+    public static GameObject placedObject; //Objekt das auserwählt wird 
+    
 
 
 
-    private GameObject spawnedObject;
-    private ARRaycastManager _arRaycastManager;
-    private Vector2 touchPosition;
-
-    static List<ARRaycastHit> hits = new List<ARRaycastHit>();
-
-
-    //Method to check if the position is touched 
-    bool TryGetTouchPosition(out Vector2 touchPosition)
+    //Method um objecte auszuwählen 
+    public void setObject(GameObject selectedObject)
     {
-        if (Input.touchCount > 0)
-        {
-            touchPosition = Input.GetTouch(0).position;
-            return true;
-        }
-        touchPosition = default;
-        return false;
-    }
-    void Awake()
-    {
-        //reference AR Raycastmanager 
-        _arRaycastManager = GetComponent<ARRaycastManager>();
-        btnObject1 = GetComponent<Button>();
-
+        placedObject = selectedObject;
 
     }
-    void Update()
-    {
-        btnObject1.enabled = false; //Does not work :(
-        if (btnObject1.enabled)
-        {
-            if (!TryGetTouchPosition(out Vector2 touchPosition))
-                return;
+    //Übergebe die Corner points oder die plane je nachdem was ich noch im ARTaptoPlace visaulisieren lassen 
+    //Vielleicht kann ich hier auf die Plane zugreifen auch wenn sie nicht visualisiert ist?   //
 
-            if (_arRaycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon))
-            {
-                var hitPose = hits[0].pose;
+   // public void setBoundaries()
+    //{
+        //Erstellen wir hier die plane? 
+        //Vector3 LeftTopCorner = planeOutlinePoints[0]; 
 
-                if (spawnedObject == null)
-                {
-                    spawnedObject = Instantiate(gameObjectToInstantiate, hitPose.position, hitPose.rotation);
-                }
-                else
-                {
-                    spawnedObject.transform.position = hitPose.position;
-                }
-            }
-        }
-    }
+        //  Vector3 RightTopCorner = planeOutlinePoints[1];
+        //  Vector3 LeftBottomCorner = planeOutlinePoints[2];
+        //  Vector3 RightBottomCorner = planeOutlinePoints[3]; //Man braucht eigentlich nur 3 Punkte um das Plane zu erstellen 
+
+
+        //var plane = new Plane(LeftTopCorner, RightTopCorner, LeftBottomCorner);
+        //  var center = (LeftTopCorner + RightTopCorner + LeftBottomCorner) / 3f;
+        // float LenghtOfPlane = RightTopCorner.x - RightBottomCorner.x;
+        // float WidthOfPlane = LeftTopCorner.y - LeftBottomCorner.y;
+
+        // Vector3 SizeOfPlane = new Vector3(LenghtOfPlane, WidthOfPlane, 0);
+
+
+        //Draw plane 
+        //Gizmos.color = Color.cyan;
+        //  Gizmos.DrawCube(center, SizeOfPlane);
+   // }
+
+    
+
+    //public void PlaceObject(Vector3 position, Quaternion rotation)
+    //{
+        //Instantiate(gameObjectToInstantiate, position, rotation);
+        
+
+
+
 
 }
+
