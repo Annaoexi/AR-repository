@@ -18,10 +18,10 @@ public class BoundarySetter : MonoBehaviour
     //Variables for raycasting and plane detection 
     [SerializeField]
     private ARRaycastManager _aRRaycastManager;
-    
+
     [SerializeField]
     private ARPlaneManager _arPlaneManager;
-    static List<ARRaycastHit> hits = new List<ARRaycastHit>(); //wieso static? 
+    static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
 
     //Variables for creating the boundaries  
@@ -53,6 +53,34 @@ public class BoundarySetter : MonoBehaviour
     gameCorner setCorner = gameCorner.UpperLeft; //Here the taping of the corners start 
 
 
+
+    //Vector Variables 
+    public static Vector3 LeftTopCorner;
+    public static Vector3 RightTopCorner;
+    public static Vector3 LeftBottomCorner;
+    public static Vector3 RightBottomCorner;
+
+    //Variables to save vector 
+
+    public string x_LBC; 
+   
+    public string y_LBC; 
+    public string z_LBC; 
+
+    public string x_RBC; 
+    public string y_RBC; 
+    public string z_RBC; 
+
+    public string x_LTC; 
+    public string y_LTC; 
+    public string z_LTC; 
+
+    public string x_RTC; 
+    public string y_RTC; 
+    public string z_RTC; 
+
+    
+
     //Method for touching to set corners of frame , if touched 
     bool TryGetTouchPosition(out Vector3 touchPosition)
     {
@@ -71,10 +99,7 @@ public class BoundarySetter : MonoBehaviour
         return false;
     }
 
-  
-    
 
-    // Update is called once per frame
     void Update()
     {   //Set up the defined plane where to place objects 
         switch (setCorner)
@@ -105,50 +130,99 @@ public class BoundarySetter : MonoBehaviour
                     _object.gameObject.SetActive(false);
                 }
 
-                showCorner.gameObject.SetActive(false); //Deactivateing of text 
-
                 //1. Deaktivierung der AR Plane 
                 _arPlaneManager.planePrefab.SetActive(false);
                 _arPlaneManager.SetTrackablesActive(false);
 
+
                 //2. Erstellen der Plane zwischen den Punkten 
                 //Get items for the planeOutlinePointsList 
-                Vector3 LeftTopCorner = planeOutlinePoints[0];
-                Vector3 RightTopCorner = planeOutlinePoints[1];
-                Vector3 LeftBottomCorner = planeOutlinePoints[2];
-                Vector3 RightBottomCorner = planeOutlinePoints[3]; //Man braucht eigentlich nur 3 Punkte um das Plane zu erstellen 
+                LeftTopCorner = planeOutlinePoints[0];
+                RightTopCorner = planeOutlinePoints[1];
+                RightBottomCorner = planeOutlinePoints[2];
+                LeftBottomCorner = planeOutlinePoints[3];
 
-                //Calculating and creating new plane 
-                var plane = new Plane(LeftTopCorner, RightTopCorner, LeftBottomCorner);
-                var center = (LeftTopCorner + RightTopCorner + LeftBottomCorner) / 3f;
-                float LenghtOfPlane = RightTopCorner.x - RightBottomCorner.x;
-                float WidthOfPlane = LeftTopCorner.y - LeftBottomCorner.y;
-
-                Vector3 SizeOfPlane = new Vector3(LenghtOfPlane, WidthOfPlane, 0);
+                //Creating new plane 
+                //_planeCreator.GetComponent<PlaneCreator>().CreatingPlane();
+                float Width = RightTopCorner.x - RightBottomCorner.x;
+                float Height = LeftTopCorner.y - LeftBottomCorner.y;
 
 
-                //Draw plane?               
-                    
+                //Setup of Mesh 
+                GameObject Plane = new GameObject();
+                MeshRenderer meshRenderer = Plane.AddComponent<MeshRenderer>();
+                MeshFilter meshFilter = Plane.AddComponent<MeshFilter>();
+            
+                //meshRenderer.sharedMaterial = new Material(Shader.Find("Standard")); 
 
-                Gizmos.color = Color.cyan;
-                Gizmos.DrawCube(center, SizeOfPlane);
-                //Gizmos geht anscheinend nur wieder mit kack Gameobjekten... transform.position? 
+                Mesh m = new Mesh();
+
+                //Vertex Array 
+                m.vertices = new Vector3[4]
+                {
+                 LeftBottomCorner,  //Corresponse to 0
+                 RightBottomCorner, //Corresponse to 1
+                 LeftTopCorner,     //Corresponse to 2
+                 RightTopCorner     //Corresponse to 3
+                };
+
+                //Setting up triangels 
+                m.triangles = new int[6]
+                {
+                    //lower left triangle 
+                    0,2,1,
+                    //upper right triangle
+                    2,3,1
+                };
 
 
-                Gizmos.DrawLine(LeftTopCorner, RightTopCorner); 
-                Gizmos.DrawLine(RightTopCorner, RightBottomCorner); 
-                Gizmos.DrawLine(RightBottomCorner, LeftBottomCorner);
-                Gizmos.DrawLine(LeftBottomCorner, LeftTopCorner); 
+                //Setting up Texture
+                m.uv = new Vector2[4]
+                {
+                 new Vector2(0, 0),
+                 new Vector2(0, 1),
+                 new Vector2(1, 1),
+                 new Vector2(1, 0)
+                };
 
 
-                //Visualisierung der Plane 
-                //_objectPlacer.setBoundaries();
-                //was braucht der an Infos damit er die Objecte plazieren kann 
-                //alternative mathematisch lösen 
-                //collischen, collider -> gameObject kann collider haben (physikalisches Componeten)
-                // ob object collidiert 
-                //plane und objekt haben beide collider und dann checken ob die sich berühren 
-                //vier eckpunkte 
+                meshFilter.mesh = m;
+                m.RecalculateNormals();
+                m.RecalculateBounds();
+
+                //3. Save vectors in playerprefs 
+                float _LBCx = LeftBottomCorner[0]; 
+                float _LBCy = LeftBottomCorner[1]; 
+                float _LBCz = LeftBottomCorner[2]; 
+
+                float _RBCx = RightBottomCorner[0];
+                float _RBCy = RightBottomCorner[1];
+                float _RBCz = RightBottomCorner[2];
+
+                float _LTCx = LeftTopCorner[0];
+                float _LTCy = LeftTopCorner[1];
+                float _LTCz = LeftTopCorner[2];
+                
+                float _RTCx = RightTopCorner[0];
+                float _RTCy = RightTopCorner[1];
+                float _RTCz = RightTopCorner[2];
+
+                PlayerPrefs.SetFloat("x_LBC", _LBCx); 
+                PlayerPrefs.SetFloat("y_LBC", _LBCy); 
+                PlayerPrefs.SetFloat("z_LBC", _LBCz); 
+
+                PlayerPrefs.SetFloat("x_RBC", _RBCx);
+                PlayerPrefs.SetFloat("y_RBC", _RBCy); 
+                PlayerPrefs.SetFloat("z_RBC", _RBCz); 
+
+                PlayerPrefs.SetFloat("x_LTC", _LTCx); 
+                PlayerPrefs.SetFloat("y_LTC", _LTCy); 
+                PlayerPrefs.SetFloat("z_LTC", _LTCz); 
+
+                PlayerPrefs.SetFloat("x_RTC", _RTCx); 
+                PlayerPrefs.SetFloat("y_RTC", _RTCy); 
+                PlayerPrefs.SetFloat("z_RTC", _RTCz); 
+             
 
 
                 break;
@@ -156,6 +230,9 @@ public class BoundarySetter : MonoBehaviour
 
 
         }
+
+       
+
 
 
         //Placing of corner objects 
