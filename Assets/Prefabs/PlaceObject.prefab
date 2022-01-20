@@ -12,6 +12,10 @@ GameObject:
   - component: {fileID: 5412314057605890525}
   - component: {fileID: 6780424431201249758}
   - component: {fileID: 4080998901940866305}
+  - component: {fileID: -3204288125956374664}
+  - component: {fileID: -8451552407054872918}
+  - component: {fileID: 3880256723525794092}
+  - component: {fileID: 3467738063054958597}
   m_Layer: 0
   m_Name: PlaceObject
   m_TagString: Untagged
@@ -95,3 +99,71 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3204288125956374664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8183671989526311537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cd94e8584be764680696145b3a390c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8451552407054872918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8183671989526311537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c73c1ab94e28d244827af556dca1ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Use:
+    Filter: 0
+    IgnoreStartedOverGui: 1
+    RequiredFingerCount: 2
+    RequiredMouseButtons: 0
+    RequiredSelectable: {fileID: 0}
+  _camera: {fileID: 0}
+  relative: 0
+  sensitivity: 1
+  damping: -1
+  remainingScale: {x: 0, y: 0, z: 0}
+--- !u!114 &3880256723525794092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8183671989526311537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7c91b26689a054d88448aba6dfe424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Use:
+    Filter: 0
+    IgnoreStartedOverGui: 1
+    RequiredFingerCount: 2
+    RequiredMouseButtons: 0
+    RequiredSelectable: {fileID: 0}
+  axis: {x: -1, y: 0, z: 0}
+  space: 1
+  sensitivity: 1
+--- !u!114 &3467738063054958597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8183671989526311537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd36dbc5bdddee499666f891c7df0b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

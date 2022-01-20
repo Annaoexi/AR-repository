@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/UIInterface.unity
+    guid: c2e94f64aa5867242bccd987938455ba
+  - enabled: 1
+    path: Assets/Scenes/SetUpMenu.unity
+    guid: 7cdf69cbb5098b4498ee30c24d147b23
+  - enabled: 1
+    path: Assets/Scenes/OptiPlaneDetection.unity
+    guid: 2e9936637edfcf74d86cd4dd6f45410f
+  - enabled: 1
     path: Assets/Scenes/ObjectPlacement.unity
     guid: 64a750a0b45606e4c9a5cf6a073282b8
+  - enabled: 1
+    path: Assets/Scenes/MoveAndDragg.unity
+    guid: 3a81eaac5a7d7b14fa320946e58216f6
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: f01b591aade3f024b80831204d4d9b6e, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: dfcee278aa24cd24c95ec380cd2a8850, type: 2}
