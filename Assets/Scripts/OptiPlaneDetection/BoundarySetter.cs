@@ -10,9 +10,7 @@ using UnityEngine.UI;
 
 
 public class BoundarySetter : MonoBehaviour
-{   //Verweise auf Object Placer skript 
-    //[SerializeField]
-    //private ObjectPlacer _objectPlacer;
+{
 
 
     //Variables for raycasting and plane detection 
@@ -38,9 +36,9 @@ public class BoundarySetter : MonoBehaviour
 
 
     //Variables for corner points 
-    public List<Vector3> planeOutlinePoints = new List<Vector3>();
+    public List<Vector3> cornerPoints = new List<Vector3>();
 
-    private enum gameCorner
+    private enum PlaneSurface 
     {
         UpperLeft,
         UpperRight,
@@ -50,7 +48,7 @@ public class BoundarySetter : MonoBehaviour
 
     }
 
-    gameCorner setCorner = gameCorner.UpperLeft; //Here the taping of the corners start 
+    PlaneSurface  setCorner = PlaneSurface.UpperLeft; //Here the taping of the corners start 
 
 
 
@@ -62,24 +60,9 @@ public class BoundarySetter : MonoBehaviour
 
     //Variables to save vector 
 
-    public string x_LBC; 
-   
-    public string y_LBC; 
-    public string z_LBC; 
-
-    public string x_RBC; 
-    public string y_RBC; 
-    public string z_RBC; 
-
-    public string x_LTC; 
-    public string y_LTC; 
-    public string z_LTC; 
-
-    public string x_RTC; 
-    public string y_RTC; 
-    public string z_RTC; 
-
+  
     
+
 
     //Method for touching to set corners of frame , if touched 
     bool TryGetTouchPosition(out Vector3 touchPosition)
@@ -88,7 +71,7 @@ public class BoundarySetter : MonoBehaviour
         {
             Touch theTouch = Input.GetTouch(0);
 
-            if (theTouch.phase == TouchPhase.Ended) // seems to work
+            if (theTouch.phase == TouchPhase.Ended) 
             {
                 touchPosition = theTouch.position;
                 return true;
@@ -98,34 +81,35 @@ public class BoundarySetter : MonoBehaviour
         touchPosition = default;
         return false;
     }
+    
 
 
     void Update()
     {   //Set up the defined plane where to place objects 
         switch (setCorner)
         {
-            case gameCorner.UpperLeft:
-                showCorner.SetText("Set the upper left Corner");
+            case PlaneSurface.UpperLeft:
+                showCorner.SetText("Click on upper left corner");
                 break;
 
-            case gameCorner.UpperRight:
-                showCorner.SetText("Set the upper right Corner");
-
-                break;
-
-            case gameCorner.LowerRight:
-                showCorner.SetText("Set the lower right Corner");
+            case PlaneSurface.UpperRight:
+                showCorner.SetText("Click on upper right Corner");
 
                 break;
 
-            case gameCorner.LowerLeft:
-                showCorner.SetText("Set the lower left Corner");
+            case PlaneSurface.LowerRight:
+                showCorner.SetText("Click on lower right Corner");
 
                 break;
 
-            case gameCorner.AllDone:
-                showCorner.SetText("Plane will be initialized");
-                foreach (var _object in spawnedObjects) //Jedes Objekt in den platzierten Objekten wird dekativiert 
+            case PlaneSurface.LowerLeft:
+                showCorner.SetText("Click on lower left Corner");
+
+                break;
+
+            case PlaneSurface.AllDone:
+                showCorner.SetText("Surface will be initialized");
+                foreach (var _object in spawnedObjects) 
                 {
                     _object.gameObject.SetActive(false);
                 }
@@ -136,14 +120,14 @@ public class BoundarySetter : MonoBehaviour
 
 
                 //2. Erstellen der Plane zwischen den Punkten 
-                //Get items for the planeOutlinePointsList 
-                LeftTopCorner = planeOutlinePoints[0];
-                RightTopCorner = planeOutlinePoints[1];
-                RightBottomCorner = planeOutlinePoints[2];
-                LeftBottomCorner = planeOutlinePoints[3];
+                //Get items for the cornerPointsList 
+                LeftTopCorner = cornerPoints[0];
+                RightTopCorner = cornerPoints[1];
+                RightBottomCorner = cornerPoints[2];
+                LeftBottomCorner = cornerPoints[3];
 
                 //Creating new plane 
-                //_planeCreator.GetComponent<PlaneCreator>().CreatingPlane();
+                
                 float Width = RightTopCorner.x - RightBottomCorner.x;
                 float Height = LeftTopCorner.y - LeftBottomCorner.y;
 
@@ -152,8 +136,10 @@ public class BoundarySetter : MonoBehaviour
                 GameObject Plane = new GameObject();
                 MeshRenderer meshRenderer = Plane.AddComponent<MeshRenderer>();
                 MeshFilter meshFilter = Plane.AddComponent<MeshFilter>();
-            
-                //meshRenderer.sharedMaterial = new Material(Shader.Find("Standard")); 
+
+                meshRenderer.sharedMaterial = new Material(Shader.Find("Standard"));
+                meshRenderer.sharedMaterial.color = Color.blue;
+               
 
                 Mesh m = new Mesh();
 
@@ -191,9 +177,9 @@ public class BoundarySetter : MonoBehaviour
                 m.RecalculateBounds();
 
                 //3. Save vectors in playerprefs 
-                float _LBCx = LeftBottomCorner[0]; 
-                float _LBCy = LeftBottomCorner[1]; 
-                float _LBCz = LeftBottomCorner[2]; 
+                float _LBCx = LeftBottomCorner[0];
+                float _LBCy = LeftBottomCorner[1];
+                float _LBCz = LeftBottomCorner[2];
 
                 float _RBCx = RightBottomCorner[0];
                 float _RBCy = RightBottomCorner[1];
@@ -202,77 +188,71 @@ public class BoundarySetter : MonoBehaviour
                 float _LTCx = LeftTopCorner[0];
                 float _LTCy = LeftTopCorner[1];
                 float _LTCz = LeftTopCorner[2];
-                
+
                 float _RTCx = RightTopCorner[0];
                 float _RTCy = RightTopCorner[1];
                 float _RTCz = RightTopCorner[2];
 
-                PlayerPrefs.SetFloat("x_LBC", _LBCx); 
-                PlayerPrefs.SetFloat("y_LBC", _LBCy); 
-                PlayerPrefs.SetFloat("z_LBC", _LBCz); 
+                PlayerPrefs.SetFloat("x_LBC", _LBCx);
+                PlayerPrefs.SetFloat("y_LBC", _LBCy);
+                PlayerPrefs.SetFloat("z_LBC", _LBCz);
 
                 PlayerPrefs.SetFloat("x_RBC", _RBCx);
-                PlayerPrefs.SetFloat("y_RBC", _RBCy); 
-                PlayerPrefs.SetFloat("z_RBC", _RBCz); 
+                PlayerPrefs.SetFloat("y_RBC", _RBCy);
+                PlayerPrefs.SetFloat("z_RBC", _RBCz);
 
-                PlayerPrefs.SetFloat("x_LTC", _LTCx); 
-                PlayerPrefs.SetFloat("y_LTC", _LTCy); 
-                PlayerPrefs.SetFloat("z_LTC", _LTCz); 
+                PlayerPrefs.SetFloat("x_LTC", _LTCx);
+                PlayerPrefs.SetFloat("y_LTC", _LTCy);
+                PlayerPrefs.SetFloat("z_LTC", _LTCz);
 
-                PlayerPrefs.SetFloat("x_RTC", _RTCx); 
-                PlayerPrefs.SetFloat("y_RTC", _RTCy); 
-                PlayerPrefs.SetFloat("z_RTC", _RTCz); 
-             
-
+                PlayerPrefs.SetFloat("x_RTC", _RTCx);
+                PlayerPrefs.SetFloat("y_RTC", _RTCy);
+                PlayerPrefs.SetFloat("z_RTC", _RTCz);
 
                 break;
 
-
-
         }
-
-       
 
 
 
         //Placing of corner objects 
         if (!TryGetTouchPosition(out Vector3 touchPosition))
             return;
-        if (_aRRaycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon)) //oder hier schon PlaneWithinBounds??? 
+        if (_aRRaycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon)) 
         {
             var HitPose = hits[0].pose;
 
 
-            GameObject spawnedObject = Instantiate(indicateCorner, HitPose.position, HitPose.rotation);
+            GameObject spawnedObject = Instantiate(indicateCorner, HitPose.position + indicateCorner.transform.position, HitPose.rotation);
             spawnedObjects[i] = spawnedObject;
 
 
             switch (setCorner)
             {
-                case gameCorner.UpperLeft:
-                    planeOutlinePoints.Add(HitPose.position);
-                    setCorner = gameCorner.UpperRight;
+                case PlaneSurface.UpperLeft:
+                    cornerPoints.Add(HitPose.position);
+                    setCorner = PlaneSurface.UpperRight;
                     i++;
                     break;
 
-                case gameCorner.UpperRight:
-                    planeOutlinePoints.Add(HitPose.position);
-                    setCorner = gameCorner.LowerRight;
+                case PlaneSurface.UpperRight:
+                    cornerPoints.Add(HitPose.position);
+                    setCorner = PlaneSurface.LowerRight;
                     i++;
                     break;
 
-                case gameCorner.LowerRight:
-                    planeOutlinePoints.Add(HitPose.position);
-                    setCorner = gameCorner.LowerLeft;
+                case PlaneSurface.LowerRight:
+                    cornerPoints.Add(HitPose.position);
+                    setCorner = PlaneSurface.LowerLeft;
                     i++;
                     break;
 
-                case gameCorner.LowerLeft:
-                    planeOutlinePoints.Add(HitPose.position);
-                    setCorner = gameCorner.AllDone;
+                case PlaneSurface.LowerLeft:
+                    cornerPoints.Add(HitPose.position);
+                    setCorner = PlaneSurface.AllDone;
                     break;
 
-                case gameCorner.AllDone:
+                case PlaneSurface.AllDone:
 
 
 

@@ -864,7 +864,7 @@ MonoBehaviour:
         m_MethodName: SetPrefabType
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 4286808132936066787, guid: e603101f587cb754db096a6afe313d83, type: 3}
+          m_ObjectArgument: {fileID: 919132149155446097, guid: db8fbf036219f0c4693f3f5382571206, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2545,8 +2545,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 322191644}
   m_HandleRect: {fileID: 322191643}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.6165354
+  m_Value: 0.00000012532882
+  m_Size: 0.61653537
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4375,8 +4375,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1815471821}
   m_HandleRect: {fileID: 1815471820}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.5743842
+  m_Value: 0.9999999
+  m_Size: 0.57438415
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4507,7 +4507,7 @@ MonoBehaviour:
         m_MethodName: SetPrefabType
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 919132149155446097, guid: 3acdf7536498d4c48b8244bf4de836c6, type: 3}
+          m_ObjectArgument: {fileID: 2367447003310583549, guid: ba46194d9a74b7047a2e00729bf6fc6c, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5539,7 +5539,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1915832686}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 780882280}
+        m_TargetAssemblyTypeName: PlacementOfObjects, Assembly-CSharp
+        m_MethodName: SetPrefabType
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4286808132936066787, guid: e603101f587cb754db096a6afe313d83, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1915832686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5614,7 +5626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -140, y: -50}
+  m_AnchoredPosition: {x: -140, y: -200}
   m_SizeDelta: {x: 180, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1952938914

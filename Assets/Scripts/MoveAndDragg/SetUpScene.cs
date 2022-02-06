@@ -41,7 +41,8 @@ public class SetUpScene : MonoBehaviour
         MeshRenderer meshRenderer = Plane.AddComponent<MeshRenderer>();
         MeshFilter meshFilter = Plane.AddComponent<MeshFilter>();
 
-        meshRenderer.sharedMaterial = new Material(Shader.Find("Standard"));
+        meshRenderer.sharedMaterial= new Material(Shader.Find("Standard"));    
+        meshRenderer.sharedMaterial.color = Color.blue; 
 
         Mesh m = new Mesh();
 

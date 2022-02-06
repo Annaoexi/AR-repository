@@ -20,7 +20,7 @@ public class DragToMove : MonoBehaviour
             {
                 transform.position = new Vector3(transform.position.x + touch.deltaPosition.x * SpeedModifier, transform.position.y, transform.position.z +touch.deltaPosition.y*SpeedModifier);
             }
-            //
+           
         }
         
     }

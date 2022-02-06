@@ -9,9 +9,7 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(ARRaycastManager))]
 public class PlacementOfObjects : MonoBehaviour
 {
-    //Referenz zum button Handler um variable zu kriegen 
-
-
+    
     [SerializeField]
     public static GameObject gameObjectToInstantiate;
 
@@ -34,15 +32,15 @@ public class PlacementOfObjects : MonoBehaviour
 
     //Method to instantiate gameobjects 
     private void SpwanPrefab(Pose hitPose)
-    {
-        spawnedObject = Instantiate(gameObjectToInstantiate, hitPose.position, hitPose.rotation);
+    {   
+        spawnedObject = Instantiate(gameObjectToInstantiate, hitPose.position+gameObjectToInstantiate.transform.position, hitPose.rotation);
         placedPrefabList.Add(spawnedObject);
         placedPrefabCount++;
     }
 
     //Method to check if the position is touched 
     bool TryGetTouchPosition(out Vector2 touchPosition)
-    {   //Input.touchCount >0
+    {  
         if (Input.GetTouch(0).phase == TouchPhase.Began)
         {
             touchPosition = Input.GetTouch(0).position;
@@ -55,7 +53,7 @@ public class PlacementOfObjects : MonoBehaviour
 
     private void Start()
     {
-        //ScriptButtonHandler = gameObjectToInstantiate.GetComponent<ButtonHandler>();
+  
 
         //Variables for plane creation 
         //Get Variables from Playerprefs
@@ -90,8 +88,11 @@ public class PlacementOfObjects : MonoBehaviour
         MeshRenderer meshRenderer = Plane.AddComponent<MeshRenderer>();
         MeshFilter meshFilter = Plane.AddComponent<MeshFilter>();
 
-        meshRenderer.sharedMaterial = new Material(Shader.Find("Standard"));
-
+        meshRenderer.sharedMaterial= new Material(Shader.Find("Standard"));    
+        meshRenderer.sharedMaterial.color = Color.blue;    
+         
+         
+        
         Mesh m = new Mesh();
 
         //Vertex Array 
@@ -148,37 +149,6 @@ public class PlacementOfObjects : MonoBehaviour
             var hitPose = hits[0].pose;
             bool isOverUI = touchPosition.IsPointOverUIObject();
 
-
-            //if(!isOverUI)
-            //{
-            //if(spawnedObject == null)
-            //{
-            //SpwanPrefab(hitPose);
-
-            //}
-            //if(spawnedObject != null){
-            //spawnedObject.transform.position = hitPose.position;
-            //spawnedObject.transform.rotation = hitPose.rotation;
-            //}
-            //if(placedPrefabCount<maxPreabSpawnCount)
-            //{
-            //SpwanPrefab(hitPose);
-            //}
-
-            // }
-            // if (!isOverUI && placedPrefabCount < maxPreabSpawnCount)
-            //{
-            //  SpwanPrefab(hitPose);
-
-            //}
-            //else
-            //{
-            //  spawnedObject.transform.position = hitPose.position;
-            //}
-         //   if (!isOverUI && spawnedObject != null)
-           // {
-             //   spawnedObject.transforsm.position = hitPose.position;
-               // }
 
 
                 if (!isOverUI && placedPrefabCount < maxPreabSpawnCount)

@@ -14,55 +14,58 @@ public class SaveButton : MonoBehaviour
     [SerializeField]
     private TMP_InputField ProjectManager;
 
-    //[SerializeField]
-    //private TMP_Dropdown Hospital;
+    [SerializeField]
+    private TMP_Dropdown Hospital;
 
-    //[SerializeField]
-    //private TMP_Dropdown Roomtype;
+    [SerializeField]
+    private TMP_Dropdown Roomtype;
 
 
     //Variables 
     string TextProjectName;
     string TextProjectManager;
 
-    //const string PrefName = "OptionValue";
+    int ValueHospitalRoom; 
+
+    int ValueRoomType; 
 
 
-    //Methods
-
-    void Awake()
-    {
-
-    }
+ 
     void Start()
     {   //Get Info from input fields 
-        TextProjectName = PlayerPrefs.GetString("tutorialTextKeyName");
+        TextProjectName = PlayerPrefs.GetString("ProjectName");
         ProjectName.text = TextProjectName;
 
-        TextProjectManager = PlayerPrefs.GetString("tutorialTextKeyName");
+        TextProjectManager = PlayerPrefs.GetString("ProjectManager");
         ProjectManager.text = TextProjectManager;
 
         //Get info from Dropdown menu
-        //Hospital.value = PlayerPrefs.GetInt("HospitalDropdown");
+        ValueHospitalRoom = PlayerPrefs.GetInt("HospitalDropdown");
+        Hospital.value = ValueHospitalRoom;
+        
+
+        ValueRoomType = PlayerPrefs.GetInt("Room Type");
+        Roomtype.value = ValueRoomType;
        
-
-
-
     }
 
-    
 
 
     public void Save()
         {
             TextProjectName = ProjectName.text;
-            PlayerPrefs.SetString("tutorialTextKeyName", TextProjectName);
+            PlayerPrefs.SetString("ProjectName", TextProjectName);
 
             TextProjectManager = ProjectManager.text;
-            PlayerPrefs.SetString("tutorialTextKeyName", TextProjectManager);
+            PlayerPrefs.SetString("ProjectManager", TextProjectManager);
 
+            ValueHospitalRoom = Hospital.value;
+            PlayerPrefs.SetInt("HospitalDropdown", ValueHospitalRoom);
 
+            ValueRoomType = Roomtype.value;
+            PlayerPrefs.SetInt("Room Type", ValueRoomType);
 
+            
 
         }
 

@@ -3779,6 +3779,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectName: {fileID: 1610712808}
   ProjectManager: {fileID: 202924491}
+  Hospital: {fileID: 1773951368}
+  Roomtype: {fileID: 933982802}
 --- !u!4 &1425253109
 Transform:
   m_ObjectHideFlags: 0
